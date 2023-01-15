@@ -1,0 +1,68 @@
+@import '../../styles/variables.scss';
+
+.footer{
+    flex: 0 0 auto;
+    width: 100%;
+    padding: 32px 0;
+    background: $color-gray_saturated;
+    position: relative;
+    backdrop-filter: blur(5px);
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 17px;
+    &::after{
+        content: "";
+        display: block;
+        width: inherit;
+        position: absolute;
+        top: 0;
+        height: 1px;
+        background: $background-gradient_blue;
+    }
+    &-wrapper{
+        display: flex;
+        align-items: flex-start;
+    }
+    &__contacts{
+        max-width: 236px;
+        font-size: 16px;
+        margin-right: 192px;
+    }
+    &__logo{
+        display: block;
+    }
+    &__adress{
+        display: block;
+        margin-top: 24px;
+    }
+    &-company{
+        display: block;
+        margin-right: 165px;
+        &__list{
+            margin-top: 24px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 16px 145px;
+        }
+        &__item{
+            cursor: pointer;
+        }
+    }
+    &-social{
+        display: block;
+        &__list{
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+
+        }
+        &__item{
+            cursor: pointer;
+            margin-right: 24px;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}

@@ -1,0 +1,29 @@
+
+.header{
+    padding-top: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 140%;
+    &-wrapper{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &-logo{
+        display: block;
+    }
+    &-menu{
+        display: block;
+        &__list{
+            display: flex;
+            align-items: center;
+        }
+        &__item{
+            margin-right: 50px;
+            cursor: pointer;
+            &:last-child{
+                margin-right: 0;
+            }
+        }
+    }
+}
