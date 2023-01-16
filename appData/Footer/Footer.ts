@@ -1,16 +1,18 @@
+import content from "*.svg"
+
 import logo from '../../images/logo/logo.svg'
 import twitter from '../../images/social/twitter.svg'
 import facebook from '../../images/social/facebook.svg'
 import gitlab from '../../images/social/gitlab.svg'
 import linked_in from '../../images/social/linked_in.svg'
 
-export interface IFooterSocialEntry{
-    image: ImageData,
+export interface IFooterSocialEntry {
+    image: typeof content,
     href: string,
 }
 
 interface IFooter {
-    logo: ImageData,
+    logo: typeof content,
     adress: {
         href: string,
         value: string,
@@ -20,7 +22,7 @@ interface IFooter {
 
 }
 
-export const FooterData:IFooter = {
+export const FooterData: IFooter = {
     logo: logo,
     adress: {
         href: 'https://goo.gl/maps/8p79ooi94USEcHwMA',

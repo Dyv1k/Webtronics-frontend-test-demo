@@ -7,29 +7,67 @@ div[id="__next"] {
 	min-height: 100vh;
 	font-family: $font-famimy-Inter;
 	color: $color-white;
-	background: url('../images/backgrounds/background_main.svg');
-	background-color: $color-blue_background;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
+	background-color: $color-blue_background;
+	z-index: 5;
+	&::before{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: inherit;
+		height: inherit;
+		background: url('../images/backgrounds/background_main.svg') no-repeat;
+		max-width: 1920px;
+		transform: translateX(-50%);
+		z-index: 4;
+	}
+	&::after{
+		content: '';
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		background: url('../images/backgrounds/preview.png') no-repeat;
+		background-position: center;
+		max-width: 1920px;
+		transform: translateX(-50%);
+		width: inherit;
+		height: 815px;
+	}
 }
 
 .container{
 	padding: 0 10px;
     max-width: 1920px;
-    width: calc(1920px - (340px * 2));
+    width: calc(1920px - (350px * 2));
     margin: 0 auto;
 	&_content {
         flex: 1 0 auto;
-        padding: 0px !important;
+        padding: 0 0 150px 0 !important;
         margin: 0 auto;
         width: 100% !important;
     }
 }
 
-ul {
+section{
+	position: relative;
+    z-index: 5;
+	margin-top: 180px;
+}
+
+ul{
     padding: 0;
     margin: 0;
     list-style-type: none;
+}
+
+p{
+	margin: 0;
+	padding: 0;
 }
 
 a{

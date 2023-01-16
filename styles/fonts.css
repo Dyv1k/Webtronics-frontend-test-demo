@@ -1,14 +1,22 @@
-
 @font-face {
     font-family: 'ClashDisplay';
     src: url('../fonts/ClashDisplay-Semibold.woff2') format('woff2'),
-         url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
-         url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
-         font-weight: 600;
-         font-style: normal;
+        url('../fonts/ClashDisplay-Semibold.woff') format('woff'),
+        url('../fonts/ClashDisplay-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
 }
 
-  @font-face {
+@font-face {
+    font-family: 'ClashDisplay';
+    src: url('../fonts/ClashDisplay-Medium.woff2') format('woff2'),
+        url('../fonts/ClashDisplay-Medium.woff') format('woff'),
+        url('../fonts/ClashDisplay-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
     font-family: 'Inter';
     src: url('../fonts/Inter-SemiBold.ttf');
     src: local('Inter SemiBold'), local('Inter-SemiBold'),

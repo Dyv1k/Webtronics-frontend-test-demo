@@ -1,34 +1,35 @@
 import Image from 'next/image'
+import { FC, ReactNode } from 'react'
 
 import { FooterData, IFooterSocialEntry } from '../../appData/Footer/Footer'
 
 import style from './Footer.module.scss'
 
-export default function Footer (){
+const Footer: FC = (): JSX.Element => {
 
-    const setCompanyList = ():JSX.Element[] =>{
-        return FooterData.company.map((item:string, index:number)=>{
+    const setCompanyList = (): ReactNode => {
+        return FooterData.company.map((item: string, index: number) => {
             return <li key={index} className={style["footer-company__item"]}>{item}</li>
         })
     }
 
-    const setSocialList = ():JSX.Element[] =>{
-        return FooterData.social.map((item: IFooterSocialEntry, index:number)=>{
+    const setSocialList = (): ReactNode => {
+        return FooterData.social.map((item: IFooterSocialEntry, index: number) => {
             return (
                 <a href={item.href} key={index} className={style["footer-social__item"]} target="_blank" rel="noopener noreferrer">
-                    <Image src={''} alt={'item.href'} {...item.image}/>
+                    <Image src={''} alt={'item.href'} {...item.image} />
                 </a>
             )
         })
     }
 
-    return(
-        <section className={style["footer"]}>
+    return (
+        <footer className={style["footer"]}>
             <div className="container">
                 <div className={style["footer-wrapper"]}>
                     <div className={style["footer__contacts"]}>
                         <div className={style["footer__logo"]}>
-                            <Image src={''} alt={'Webtronics logo'} {...FooterData.logo} priority={true}/>
+                            <Image src={''} alt={'Webtronics logo'} {...FooterData.logo} priority={true} />
                         </div>
                         <a href={FooterData.adress.href} className={style["footer__adress"]} target="_blank" rel="noopener noreferrer">
                             {FooterData.adress.value}
@@ -48,6 +49,8 @@ export default function Footer (){
                     </nav>
                 </div>
             </div>
-        </section>
+        </footer>
     )
 }
+
+export default Footer

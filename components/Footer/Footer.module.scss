@@ -6,6 +6,7 @@
     padding: 32px 0;
     background: $color-gray_saturated;
     position: relative;
+    z-index: 10;
     backdrop-filter: blur(5px);
     font-size: 14px;
     font-weight: 400;
@@ -44,6 +45,7 @@
             grid-template-columns: repeat(2, 1fr);
             grid-template-rows: repeat(3, 1fr);
             gap: 16px 145px;
+            grid-auto-flow: column;
         }
         &__item{
             cursor: pointer;

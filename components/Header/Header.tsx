@@ -1,14 +1,14 @@
 import Image from 'next/image'
-import React, {FC} from 'react'
+import { FC, ReactNode } from 'react'
 
 import { HeaderData } from '../../appData/Header/Header'
 
 import style from './Header.module.scss'
 
-export default function Header() {
+const Header: FC = (): JSX.Element => {
 
-    const setMenuList = ():JSX.Element[] =>{
-        return HeaderData.navList.map((item:string, index:number)=>{
+    const setMenuList = (): ReactNode => {
+        return HeaderData.navList.map((item: string, index: number) => {
             return <li key={index} className={style["header-menu__item"]}>{item}</li>
         })
     }
@@ -30,3 +30,5 @@ export default function Header() {
         </header>
     )
 }
+
+export default Header
