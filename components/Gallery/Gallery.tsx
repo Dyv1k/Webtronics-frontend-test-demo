@@ -18,7 +18,7 @@ const Gallery: FC = (): JSX.Element => {
         return GalleryData.images.map((item: typeof content, index: number) =>{
             return (
                 <div className={style["gallery__image"]} key={index}>
-                    <Image alt={`developer ${index+1}`} {...item}/>
+                    <Image alt={`developer ${index+1}`} src={item.src} width={item.width} height={item.height}/>
                 </div>
             )
         })

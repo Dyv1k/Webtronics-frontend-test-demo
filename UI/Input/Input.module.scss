@@ -1,0 +1,52 @@
+@import '../../styles/variables.scss';
+
+.input{
+    padding: 0;
+    display: block;
+    border: 1px solid rgba(21, 191, 253, 0.6980392157);
+    border-radius: 8px;
+    outline: none;
+    max-width: 100%;
+    padding: 24px;
+    background: $color-gray_saturated;
+    font-size: $font-size-p1;
+    font-weight: 400;
+    line-height: 140%;
+    transition: $transition-input;
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::placeholder{
+        color: inherit;
+    }
+    &__wrapper{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    &__error{
+        display: block;
+        margin-top: 5px;
+        font-size: $font-size-p1;
+        font-weight: 400;
+        line-height: 140%;
+    }
+
+    &_active{
+        color: $color-blue_thin;
+        &:active, &:focus{
+            color: $color-white;
+        }
+    }
+    &_disable{
+        color: $color-gray;
+        border-color: $color-gray;
+        pointer-events: none;
+    }
+    &_error{
+        background: rgba(255, 165, 165, 0.2);
+        border-color: $color-red;
+        color: $color-white !important;
+    }
+}

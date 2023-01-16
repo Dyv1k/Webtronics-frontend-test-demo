@@ -1,0 +1,15 @@
+
+
+.form{
+    display: flex;
+    flex-direction: column;
+    &__input{
+        margin-top: 16px;
+        &:first-child{
+            margin-top: 0;
+        }
+    }
+    &__button{
+        margin-top: 24px;
+    }
+}

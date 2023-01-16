@@ -10,6 +10,7 @@
     "server": "json-server --watch db.json -p 3004"
   },
   "dependencies": {
+    "@hookform/resolvers": "^2.9.10",
     "@next/font": "13.1.1",
     "@types/node": "18.11.18",
     "@types/react": "18.0.26",
@@ -18,8 +19,10 @@
     "normalize.css": "^8.0.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.42.1",
     "sass": "^1.57.1",
-    "typescript": "4.9.4"
+    "typescript": "4.9.4",
+    "yup": "^0.32.11"
   },
   "devDependencies": {
     "json-server": "^0.17.1"
