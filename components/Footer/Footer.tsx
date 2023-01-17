@@ -1,15 +1,20 @@
 import Image from 'next/image'
 import { FC, ReactNode } from 'react'
 
-import { FooterData, IFooterSocialEntry } from '../../appData/Footer/Footer'
+import { FooterData, IFooterNavList, IFooterSocialEntry } from '../../appData/Footer/Footer'
+import ScrollLink from '../../UI/ScrollLink/ScrollLink'
 
 import style from './Footer.module.scss'
 
 const Footer: FC = (): JSX.Element => {
 
     const setCompanyList = (): ReactNode => {
-        return FooterData.company.map((item: string, index: number) => {
-            return <li key={index} className={style["footer-company__item"]}>{item}</li>
+        return FooterData.navList.map((item: IFooterNavList, index: number) => {
+            return (
+                <li key={index} className={style["footer-company__item"]}>
+                    <ScrollLink href={item.href}>{item.title}</ScrollLink>
+                </li>
+            )
         })
     }
 
@@ -17,7 +22,7 @@ const Footer: FC = (): JSX.Element => {
         return FooterData.social.map((item: IFooterSocialEntry, index: number) => {
             return (
                 <a href={item.href} key={index} className={style["footer-social__item"]} target="_blank" rel="noopener noreferrer">
-                    <Image src={''} alt={'item.href'} {...item.image} />
+                    <Image alt={'item.href'} {...item.image} />
                 </a>
             )
         })

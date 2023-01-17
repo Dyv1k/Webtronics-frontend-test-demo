@@ -1,7 +1,7 @@
-import Image from "next/image"
 import { FC } from 'react'
 
 import Button from "../../UI/Button/Button"
+import ScrollLink from "../../UI/ScrollLink/ScrollLink"
 
 import style from './Preview.module.scss'
 
@@ -22,7 +22,9 @@ const Preview: FC = (): JSX.Element => {
                         </p>
                     </div>
                     <div className={style["preview__button"]}>
-                        <Button size="medium" text="Start my career change" />
+                        <ScrollLink href={'steps'}>
+                            <Button size="medium" text="Start my career change" />
+                        </ScrollLink>
                     </div>
                 </div>
             </div>

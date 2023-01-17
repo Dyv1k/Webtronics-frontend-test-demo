@@ -11,7 +11,7 @@ export interface ITechnologiesStack {
     title: string,
 }
 
-interface ITechnologies {
+export interface ITechnologies {
     title: string,
     description: string,
     stack: ITechnologiesStack[]

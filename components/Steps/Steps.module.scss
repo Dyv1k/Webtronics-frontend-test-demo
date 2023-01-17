@@ -1,0 +1,140 @@
+@import '../../styles/variables.scss';
+
+.steps{
+    display: block;
+    position: relative;
+    padding-bottom: 20px;
+    &__wrapper{
+        margin-top: 66px;
+        display: grid;
+        grid-auto-rows: 112px;
+        grid-template-columns: repeat(2, 1fr);
+        height: 100%;
+        &::after{
+            content: '';
+            display: block;
+            position: relative;
+            z-index: -2;
+            background: $background-gradient_aqua;
+            width: 4px;
+            height: 890px;
+            transform: translateX(-50%);
+            grid-row: 1/2;
+            margin-top: 130px;
+        }
+    }
+    &-item{
+        margin-top: 20px;
+        position: relative;
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+        &_left{
+            justify-content: flex-start;
+        }
+        &_right{
+            justify-content: flex-end;
+        }
+        &:nth-child(6n+1){
+            grid-row: 1/3;
+        }
+        &:nth-child(6n+2){
+            grid-row: 2/4;
+        }
+        &:nth-child(6n+3){
+            grid-row: 4/7;
+        }
+        &:nth-child(6n+4){
+            grid-row: 5/8;
+        }
+        &:nth-child(6n+5){
+            grid-row: 8/10;
+        }
+        &:nth-child(6n+6){
+            grid-row: 9/11;
+        }
+        &:nth-child(odd){
+            grid-column: 1;
+        }
+        &:nth-child(even){
+            grid-column: 2;
+        }
+        &__line{
+            position: absolute;
+            z-index: -1;
+            &_right{
+                top: -20px;
+                left: -20px;
+                transform: matrix(-1, 0, 0, 1, 0, 0);
+            }
+            &_left{
+                top: -20px;
+                right: -20px;
+            }
+        }
+        &__block{
+            box-sizing: border-box;
+            max-width: 475px;
+            width: 100%;
+            height: 190px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 8px;
+            padding: 24px;
+            position: relative;
+            border: 1px solid #15BFFDB2;
+            h3, h4{
+                text-align: left;
+            }
+            h3{
+                margin-top: 10px;
+            }
+        }
+        &__description{
+            display: block;
+            margin-top: 10px;
+            max-width: 95%;
+            font-size: $font-size-p1;
+            font-weight: 400;
+            line-height: 140%;
+            color: $color-blue_thin;
+        }
+        &-pointer{
+            position: relative;
+            &_left{
+                margin-left: 40px;
+                .steps-item-pointer{
+                    &__circle{
+                        right: -31px;
+                    }
+                }
+            }
+            &_right{
+                margin-right: 40px;
+                .steps-item-pointer{
+                    &__circle{
+                        left: -31px;
+                    }
+                    &__arrow{
+                        transform: rotate(-180deg);
+                    }
+                }
+            }
+            &__arrow{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            &__circle{
+                width: 24px;
+                height: 24px;
+                border-radius: 100%;
+                background: $color-blue;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}

@@ -1,10 +1,10 @@
 import content from '*.png'
 
-import developer_1 from '../../images/Gallery/developer_1.png'
-import developer_2 from '../../images/Gallery/developer_2.png'
-import developer_3 from '../../images/Gallery/developer_3.png'
+import developer_1 from '../../images/gallery/developer_1.png'
+import developer_2 from '../../images/gallery/developer_2.png'
+import developer_3 from '../../images/gallery/developer_3.png'
 
-interface IGallery {
+export interface IGallery {
     title: string,
     description: string[],
     images: typeof content[]

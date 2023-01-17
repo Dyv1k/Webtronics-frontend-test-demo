@@ -11,13 +11,18 @@ export interface IFooterSocialEntry {
     href: string,
 }
 
-interface IFooter {
+export interface IFooterNavList {
+    title: string,
+    href: string,
+}
+
+export interface IFooter {
     logo: typeof content,
     adress: {
         href: string,
         value: string,
     },
-    company: string[],
+    navList: IFooterNavList[]
     social: IFooterSocialEntry[]
 
 }
@@ -28,7 +33,28 @@ export const FooterData: IFooter = {
         href: 'https://goo.gl/maps/8p79ooi94USEcHwMA',
         value: 'Wisconsin Ave, Suite 700 Chevy Chase, Maryland 20815',
     },
-    company: ['About Us', 'Steps', 'FAQs', 'Review', 'Gallery',],
+    navList: [
+        {
+            title: 'About Us',
+            href: 'aboutUs'
+        },
+        {
+            title: 'Steps',
+            href: 'steps'
+        },
+        {
+            title: 'FAQs',
+            href: 'faq'
+        }, 
+        {
+            title: 'Review',
+            href: 'review'
+        },  
+        {
+            title: 'Gallery',
+            href: 'gallery'
+        },
+    ],
     social: [
         {
             image: facebook,

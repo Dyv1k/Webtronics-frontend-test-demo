@@ -10,7 +10,7 @@ export interface IAboutUsMentors {
     description: string
 }
 
-interface IAboutUs {
+export interface IAboutUs {
     title: string,
     description: string,
     mentors: IAboutUsMentors[],

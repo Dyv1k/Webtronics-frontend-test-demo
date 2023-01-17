@@ -2,32 +2,32 @@ import { FC, ReactNode } from 'react'
 import content from '*.png'
 import Image from 'next/image'
 
-import { GalleryData } from '../../appData/Gallery/Gallery'
+import { IGallery } from '../../appData/Gallery/Gallery'
 
 import style from './Gallery.module.scss'
 
-const Gallery: FC = (): JSX.Element => {
+const Gallery: FC<{ data: IGallery }> = ({ data }): JSX.Element => {
 
     const setGalleryDescription = (): ReactNode => {
-        return GalleryData.description.map((item: string, index: number) =>{
+        return data.description.map((item: string, index: number) => {
             return <p className={style["gallery__description"]} key={index}><span>{item}</span></p>
         })
     }
 
     const setGalleryImages = (): ReactNode => {
-        return GalleryData.images.map((item: typeof content, index: number) =>{
+        return data.images.map((item: typeof content, index: number) => {
             return (
                 <div className={style["gallery__image"]} key={index}>
-                    <Image alt={`developer ${index+1}`} src={item.src} width={item.width} height={item.height}/>
+                    <Image alt={`developer ${index + 1}`} src={item.src} width={item.width} height={item.height} />
                 </div>
             )
         })
     }
 
     return (
-        <section className={style["gallery"]}>
+        <section className={style["gallery"]} id='gallery'>
             <div className="container">
-                <h2 className="title title_gallery">{GalleryData.title}</h2>
+                <h2 className="title title_gallery">{data.title}</h2>
                 <div className={style["gallery__wrapper"]}>
                     {setGalleryDescription()}
                     {setGalleryImages()}

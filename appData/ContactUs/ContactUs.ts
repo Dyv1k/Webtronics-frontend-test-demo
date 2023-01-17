@@ -6,7 +6,7 @@ export interface IContactUsFields {
     placeholder: string,
 }
 
-interface IContactUs {
+export interface IContactUs {
     title: string,
     description: string,
     fields: IContactUsFields[],

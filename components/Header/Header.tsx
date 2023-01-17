@@ -1,15 +1,21 @@
 import Image from 'next/image'
 import { FC, ReactNode } from 'react'
+import { Link } from 'react-scroll'
+import ScrollLink from '../../UI/ScrollLink/ScrollLink'
 
-import { HeaderData } from '../../appData/Header/Header'
+import { HeaderData, IHeaderNavList } from '../../appData/Header/Header'
 
 import style from './Header.module.scss'
 
 const Header: FC = (): JSX.Element => {
 
     const setMenuList = (): ReactNode => {
-        return HeaderData.navList.map((item: string, index: number) => {
-            return <li key={index} className={style["header-menu__item"]}>{item}</li>
+        return HeaderData.navList.map((item: IHeaderNavList, index: number) => {
+            return (
+                <li key={index} className={style["header-menu__item"]}>
+                    <ScrollLink href={item.href}>{item.title}</ScrollLink>
+                </li>
+            )
         })
     }
 
