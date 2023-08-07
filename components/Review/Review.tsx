@@ -19,44 +19,20 @@ const Review: FC<{ data: IReview }> = ({ data }): JSX.Element => {
         )
     }
 
-    const setCurrentSlide = (slide: number | string): void => {
-
-        switch (slide) {
-            case 1:
-                if (activeSlide + 1 <= data.people.length - 1) {
-                    return setActiveSlide(activeSlide + 1)
-                }
-                else return setActiveSlide(activeSlide - 1)
-                break;
-
-            case 2:
-                if (activeSlide + 2 <= data.people.length - 1) {
-                    return setActiveSlide(activeSlide + 2)
-                }
-                else if (activeSlide - 2 >= 0) {
-                    return setActiveSlide(activeSlide - 2)
-                }
-                else {
-                    return setActiveSlide(data.people.length - 1 - 2)
-                }
-                break;
-
-            case 'left':
-                if (activeSlide - 1 >= 0) {
-                    return setActiveSlide(activeSlide - 1)
-                }
-                else return setActiveSlide(data.people.length - 1)
-                break;
-
-            case 'right':
-                if (activeSlide + 1 <= data.people.length - 1) {
-                    return setActiveSlide(activeSlide + 1)
-                }
-                else return setActiveSlide(0)
-                break;
-
-            default:
-                break;
+    const setCurrentSlide = (slide: number): void => {
+        if (activeSlide + slide >= 0) {
+            if (activeSlide + slide <= data.people.length - 1) {
+                setActiveSlide(activeSlide + slide);
+            }
+            else if (slide === 2) {
+                setActiveSlide(Math.abs(activeSlide + 1 - (data.people.length - 1)));
+            }
+            else {
+                setActiveSlide(0);
+            }
+        }
+        else {
+            setActiveSlide(data.people.length - 1);
         }
     }
 
@@ -73,10 +49,10 @@ const Review: FC<{ data: IReview }> = ({ data }): JSX.Element => {
                                 <span>{data.people.length}</span>
                             </p>
                             <div className={style["review-gallery-control__pagination"]}>
-                                <div className={`${style["review-gallery-control__arrow"]} ${style["review-gallery-control__arrow_left"]}`} onClick={() => setCurrentSlide('left')}>
+                                <div className={`${style["review-gallery-control__arrow"]} ${style["review-gallery-control__arrow_left"]}`} onClick={() => setCurrentSlide(-1)}>
                                     <Image alt={'pagination left'} {...arrow_img} />
                                 </div>
-                                <div className={`${style["review-gallery-control__arrow"]} ${style["review-gallery-control__arrow_right"]}`} onClick={() => setCurrentSlide('right')}>
+                                <div className={`${style["review-gallery-control__arrow"]} ${style["review-gallery-control__arrow_right"]}`} onClick={() => setCurrentSlide(1)}>
                                     <Image alt={'pagination right'} {...arrow_img} />
                                 </div>
                             </div>
@@ -86,24 +62,16 @@ const Review: FC<{ data: IReview }> = ({ data }): JSX.Element => {
                                 <Image alt={data.people[activeSlide].title} {...data.people[activeSlide].image} />
                             </div>
                             <div className={`${style["review-gallery__image_small"]} ${style["review-gallery__image"]}`} onClick={() => setCurrentSlide(1)}>
-                                {activeSlide + 1 <= data.people.length - 1 ? (
-                                    <Image alt={data.people[activeSlide + 1].title} {...data.people[activeSlide + 1].image} />
-                                ) :
-                                    <Image
-                                        alt={data.people[activeSlide - 1].title}
-                                        {...data.people[activeSlide - 1].image}
-                                    />
-                                }
+                                <Image
+                                    alt={activeSlide + 1 <= data.people.length - 1 ? data.people[activeSlide + 1].title : data.people[0].title}
+                                    {...data.people[activeSlide + 1 <= data.people.length - 1 ? activeSlide + 1 : 0].image}
+                                />
                             </div>
                             <div className={`${style["review-gallery__image_small"]} ${style["review-gallery__image"]}`} onClick={() => setCurrentSlide(2)}>
-                                {activeSlide + 2 <= data.people.length - 1 ? (
-                                    <Image alt={data.people[activeSlide + 2].title} {...data.people[activeSlide + 2].image} />
-                                ) :
-                                    <Image
-                                        alt={data.people[activeSlide - 2 >= 0 ? activeSlide - 2 : data.people.length - 1 - 2].title}
-                                        {...data.people[activeSlide - 2 >= 0 ? activeSlide - 2 : data.people.length - 1 - 2].image}
-                                    />
-                                }
+                                <Image
+                                    alt={data.people[activeSlide + 2 <= data.people.length - 1 ? activeSlide + 2 : Math.abs(activeSlide + 1 - (data.people.length - 1))].title}
+                                    {...data.people[activeSlide + 2 <= data.people.length - 1 ? activeSlide + 2 : Math.abs(activeSlide + 1 - (data.people.length - 1))].image}
+                                />
                             </div>
                         </div>
                     </div>

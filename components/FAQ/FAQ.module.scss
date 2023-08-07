@@ -26,56 +26,24 @@
         line-height: 140%;
     }
     &-question{
+        background: url('../../images/faq/subtract.svg') no-repeat;
+        background-size: 100% 100%;
         width: 703px;
-        max-height: 66px;
+        max-height: 65px;
         box-sizing: border-box;
         overflow: hidden;
-        clip-path: polygon(100% 0%, 5% 0, 0 40%, 0 100%, 95% 100%, 100% 60%);
-        border: 1px solid rgba(21, 191, 253, 0.6980392157);
         margin-top: 24px;
         padding: 16px 6px 16px 24px;
         position: relative;
         transition: 0.5s all;
-        background: rgba(255, 255, 255, 0.05);
-        border-radius: 8px;
         &:first-child{
             margin-top: 0;
-        }
-        &::after, &::before{
-            content: '';
-            display: block;
-            width: 1px;
-            height: 70px;
-            background: rgba(21, 191, 253, 0.6980392157);
-            position: absolute;
-            transition: 0.5s all;
-        }
-        &::after{
-            top: -30px;
-            left: 26.6px;
-            transform: rotate(53deg);
-        }
-        &::before{
-            bottom: -17.3px;
-            right: 10.5px;
-            transform: rotate(53deg);
         }
         &__active{
             max-height: 166px;
             padding: 27.5px 6px 27.5px 24px;
-            clip-path: polygon(100% 0%, 4% 0, 0 18%, 0 100%, 95% 100%, 100% 78%);
             position: relative;
             z-index: 10;
-            &::after{
-                top: -20px;
-                left: 12.7px;
-                transform: rotate(43deg);
-            }
-            &::before{
-                bottom: -15.5px;
-                right: 14.7px;
-                transform: rotate(44deg);
-            }
             .faq-question-mark{
                 &_active{
                     opacity: 0;
@@ -115,11 +83,5 @@
             margin-top: 16px;
             max-width: 90%;
         }
-    }
-}
-
-@keyframes borderLineBig {
-    0%{
-        opacity: 1;
     }
 }

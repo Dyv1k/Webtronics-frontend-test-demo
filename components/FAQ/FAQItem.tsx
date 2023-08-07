@@ -4,6 +4,7 @@ import { IFAQQuestion } from "../../appData/FAQ/FAQ";
 
 import plus_img from '../../images/faq/plus.svg'
 import minus_img from '../../images/faq/minus.svg'
+// import subtract from '../../images/faq/subtract.svg'
 
 import style from './FAQ.module.scss'
 
